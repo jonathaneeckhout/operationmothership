@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://4v3xop75ppnm"]
+
+[ext_resource type="PackedScene" uid="uid://wogx6u7s37l8" path="res://scenes/player/player.tscn" id="1_hyk8p"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_hyk8p"]
+size = Vector2(100, 100)
+
+[sub_resource type="SphereMesh" id="SphereMesh_hyk8p"]
+radius = 500.0
+height = 500.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hyk8p"]
+
+[sub_resource type="Sky" id="Sky_iuonh"]
+sky_material = SubResource("ProceduralSkyMaterial_hyk8p")
+
+[sub_resource type="Environment" id="Environment_k2fmo"]
+background_mode = 2
+sky = SubResource("Sky_iuonh")
+
+[node name="Main" type="Node3D"]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map"]
+mesh = SubResource("PlaneMesh_hyk8p")
+
+[node name="TestPlanet" type="MeshInstance3D" parent="Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1000)
+mesh = SubResource("SphereMesh_hyk8p")
+
+[node name="Entities" type="Node3D" parent="."]
+
+[node name="Player" parent="Entities" instance=ExtResource("1_hyk8p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_k2fmo")
