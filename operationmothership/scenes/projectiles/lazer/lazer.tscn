@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b20pytb2alsy2"]
+[gd_scene load_steps=4 format=3 uid="uid://b20pytb2alsy2"]
+
+[ext_resource type="Script" uid="uid://cpimfe0lctmyx" path="res://scenes/projectiles/lazer/lazer.gd" id="1_r7tvf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dd60r"]
 albedo_color = Color(0.192157, 0.729412, 0.211765, 1)
@@ -14,6 +16,7 @@ radius = 0.01
 height = 0.1
 
 [node name="Lazer" type="Node3D"]
+script = ExtResource("1_r7tvf")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

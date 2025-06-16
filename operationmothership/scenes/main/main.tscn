@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://4v3xop75ppnm"]
+[gd_scene load_steps=8 format=3 uid="uid://4v3xop75ppnm"]
 
 [ext_resource type="PackedScene" uid="uid://wogx6u7s37l8" path="res://scenes/player/player.tscn" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://b8273v2hadlec" path="res://scenes/main/main.gd" id="1_iuonh"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hyk8p"]
 size = Vector2(100, 100)
@@ -19,6 +20,7 @@ background_mode = 2
 sky = SubResource("Sky_iuonh")
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_iuonh")
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -31,8 +33,12 @@ mesh = SubResource("SphereMesh_hyk8p")
 
 [node name="Entities" type="Node3D" parent="."]
 
-[node name="Player" parent="Entities" instance=ExtResource("1_hyk8p")]
+[node name="Players" type="Node3D" parent="Entities"]
+
+[node name="Player" parent="Entities/Players" instance=ExtResource("1_hyk8p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+
+[node name="Projectiles" type="Node3D" parent="Entities"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
