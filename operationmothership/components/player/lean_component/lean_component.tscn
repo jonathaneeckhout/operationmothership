@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1jc8vqicxbkg"]
+
+[ext_resource type="Script" uid="uid://b0ko5aecu8mnb" path="res://components/player/lean_component/lean_component.gd" id="1_21pvu"]
+
+[node name="LeanComponent" type="Node"]
+script = ExtResource("1_21pvu")

@@ -2,10 +2,10 @@ extends Node
 class_name PlayerSchoot
 
 @export var bullet_scene: PackedScene
-@export var fire_rate := 0.1
+@export var fire_rate := 0.3
 
 @onready var actor: CharacterBody3D = get_parent()
-@onready var input_component: PlayerInput = actor.get_node_or_null("PlayerInput")
+@onready var input_component: PlayerInputComponent = actor.get_node_or_null("PlayerInputComponent")
 
 var weaponTimer: Timer = null
 
@@ -25,7 +25,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	var bullet = bullet_scene.instantiate()
-	bullet.global_position = actor.global_position
+	bullet.transform = actor.global_transform
 	Game.projectiles.add_child(bullet)
 	
 	weaponTimer.start(fire_rate)

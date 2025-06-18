@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://4v3xop75ppnm"]
+[gd_scene load_steps=9 format=3 uid="uid://4v3xop75ppnm"]
 
 [ext_resource type="PackedScene" uid="uid://wogx6u7s37l8" path="res://scenes/player/player.tscn" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://b8273v2hadlec" path="res://scenes/main/main.gd" id="1_iuonh"]
+[ext_resource type="PackedScene" uid="uid://bfyxgy5yu2wku" path="res://assets/models/enemies/disc.glb" id="3_k2fmo"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hyk8p"]
 size = Vector2(100, 100)
@@ -45,3 +46,9 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10,
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_k2fmo")
+
+[node name="disc" parent="." instance=ExtResource("3_k2fmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5093, 26.8404, -18.1335)
+
+[node name="disc2" parent="." instance=ExtResource("3_k2fmo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.5093, 26.8404, -18.1335)

@@ -1,31 +1,36 @@
-[gd_scene load_steps=8 format=3 uid="uid://wogx6u7s37l8"]
+[gd_scene load_steps=9 format=3 uid="uid://wogx6u7s37l8"]
 
 [ext_resource type="PackedScene" uid="uid://6buowbd7jyso" path="res://assets/models/ships/Spaceship.glb" id="1_8afob"]
 [ext_resource type="Script" uid="uid://86geceonjnhl" path="res://scenes/player/player.gd" id="1_dovo2"]
-[ext_resource type="PackedScene" uid="uid://dtpxyqvi17yoi" path="res://components/player/player_input/player_input.tscn" id="2_gmlin"]
-[ext_resource type="PackedScene" uid="uid://dnafsusluo6m7" path="res://components/player/player_movement/player_movement.tscn" id="3_lvxji"]
+[ext_resource type="PackedScene" uid="uid://dtpxyqvi17yoi" path="res://components/player/player_input_component/player_input_component.tscn" id="2_gmlin"]
+[ext_resource type="PackedScene" uid="uid://dnafsusluo6m7" path="res://components/player/player_movement/player_movement_component.tscn" id="3_lvxji"]
 [ext_resource type="PackedScene" uid="uid://clcbqjtkctfgi" path="res://components/player/player_shoot_component/player_shoot_component.tscn" id="4_p47bc"]
 [ext_resource type="PackedScene" uid="uid://b20pytb2alsy2" path="res://scenes/projectiles/lazer/lazer.tscn" id="5_75vfm"]
+[ext_resource type="PackedScene" uid="uid://b1jc8vqicxbkg" path="res://components/player/lean_component/lean_component.tscn" id="6_0owmy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_dovo2")
 
-[node name="PlayerInput" parent="." instance=ExtResource("2_gmlin")]
+[node name="PlayerInputComponent" parent="." instance=ExtResource("2_gmlin")]
 
-[node name="PlayerMovement" parent="." instance=ExtResource("3_lvxji")]
+[node name="PlayerMovementComponent" parent="." instance=ExtResource("3_lvxji")]
 
 [node name="PlayerShootComponent" parent="." instance=ExtResource("4_p47bc")]
 bullet_scene = ExtResource("5_75vfm")
+
+[node name="LeanComponent" parent="." node_paths=PackedStringArray("model") instance=ExtResource("6_0owmy")]
+model = NodePath("../Model")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_x7p2l")
 
 [node name="Model" parent="." instance=ExtResource("1_8afob")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.212305, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 6, -16)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4, -8)
 
 [node name="PlayerUI" type="CanvasLayer" parent="Camera3D"]
 

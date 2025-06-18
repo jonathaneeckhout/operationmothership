@@ -15,7 +15,7 @@ class_name PlayerMovement
 @export var rotation_lerp_speed := 5.0
 
 @onready var actor: CharacterBody3D = get_parent()
-@onready var input_component: PlayerInput = actor.get_node_or_null("PlayerInput")
+@onready var input_component: PlayerInputComponent = actor.get_node_or_null("PlayerInputComponent")
 
 var pitch_smoothed := 0.0
 var yaw_smoothed := 0.0
